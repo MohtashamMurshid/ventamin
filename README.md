@@ -1,0 +1,213 @@
+# Facebook Ad Library Scraper
+
+A comprehensive tool to extract and analyze advertising data from Facebook's Ad Library for competitor analysis.
+
+## Features
+
+- 🌍 **Worldwide Search**: Scrapes ads across 30+ countries
+- 🏆 **Performance Analysis**: Identifies top-performing ads based on engagement metrics
+- 📊 **Multiple Export Formats**: CSV, JSON with detailed analytics
+- 🔧 **Configurable**: Easy setup for different competitors and markets
+- 📱 **Media Extraction**: Captures ad images, videos, and content
+- 🎯 **Smart Filtering**: Focuses on relevant ad content and metrics
+
+## Setup
+
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Install ChromeDriver
+
+Download ChromeDriver from https://chromedriver.chromium.org/ and ensure it's in your PATH, or install via:
+
+```bash
+# macOS
+brew install chromedriver
+
+# Ubuntu/Debian
+sudo apt-get install chromium-chromedriver
+```
+
+### 3. Configure Competitors
+
+Edit `config.py` and replace the placeholder page IDs with actual Facebook page IDs:
+
+```python
+COMPETITORS = {
+    "AG1": "YOUR_AG1_PAGE_ID",
+    "IM8": "YOUR_IM8_PAGE_ID",
+    "Loop": "YOUR_LOOP_PAGE_ID"
+}
+```
+
+**How to find Facebook Page IDs:**
+
+1. Go to the competitor's Facebook page
+2. View page source (Ctrl+U)
+3. Search for "page_id" or use online tools like `findmyfbid.com`
+
+## Usage
+
+### Quick Start
+
+```bash
+# Run scraper for all competitors (first 10 countries)
+python run_scraper.py
+
+# Quick mode (US, UK, Canada, Australia only)
+python run_scraper.py --quick
+
+# Specific competitor
+python run_scraper.py --competitors AG1
+
+# Multiple competitors
+python run_scraper.py --competitors AG1 IM8
+
+# Specific countries
+python run_scraper.py --countries US GB CA --competitors AG1
+
+# Run in background (headless mode)
+python run_scraper.py --headless
+```
+
+### Advanced Usage
+
+```bash
+# Custom output directory
+python run_scraper.py --output-dir ./my_results
+
+# Help and options
+python run_scraper.py --help
+```
+
+## Output Files
+
+The scraper generates several output files:
+
+### 📄 `all_ads_TIMESTAMP.csv`
+
+Complete dataset with all scraped ads including:
+
+- Competitor name and country
+- Ad text content
+- Media URLs
+- CTA buttons and links
+- Performance scores
+- Engagement metrics
+
+### 🏆 `top_performing_ads_TIMESTAMP.json`
+
+Top-performing ads based on engagement analysis
+
+### 📊 `scraping_summary_TIMESTAMP.json`
+
+Summary report with:
+
+- Total ads found per competitor
+- Countries with active ads
+- Performance statistics
+- Scraping metadata
+
+### 📸 Screenshots
+
+Debug screenshots saved in `screenshots/` directory showing what was loaded for each competitor/country combination.
+
+## Performance Scoring
+
+Ads are automatically scored based on:
+
+- **Text Length**: Longer, more detailed content
+- **Media Count**: Number of images/videos
+- **Engagement Metrics**: Extracted likes, shares, comments
+- **CTA Presence**: Call-to-action buttons
+- **Link Presence**: External links
+
+## Supported Countries
+
+The scraper searches across 30+ major markets:
+
+**Americas**: US, CA, BR, MX, AR  
+**Europe**: GB, DE, FR, IT, ES, NL, NO, SE, DK, FI, CH, AT, BE, IE  
+**Asia-Pacific**: AU, SG, MY, TH, PH, VN, IN, JP, KR, NZ  
+**Other**: ZA
+
+## Configuration Options
+
+Edit `config.py` to customize:
+
+- **Countries**: Add/remove target markets
+- **Scraping Settings**: Timeouts, scroll behavior, limits
+- **Export Options**: Output formats and file locations
+- **Performance Weights**: Adjust scoring algorithm
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"No ads found"**:
+
+   - Check if page ID is correct
+   - Try different countries (some companies don't advertise globally)
+   - Verify the Facebook page is still active
+
+2. **ChromeDriver errors**:
+
+   - Ensure ChromeDriver version matches your Chrome browser
+   - Check ChromeDriver is in PATH
+
+3. **Page loading timeout**:
+
+   - Increase `wait_timeout` in config.py
+   - Check internet connection
+   - Try non-headless mode to see what's happening
+
+4. **Empty results**:
+   - Facebook may be blocking automated access
+   - Try different IP address or VPN
+   - Add delays between requests
+
+### Debug Mode
+
+Run with screenshots enabled to see what the scraper is encountering:
+
+```python
+# In config.py
+SCRAPING_CONFIG = {
+    "headless": False,  # Shows browser window
+    "screenshot_debug": True  # Saves screenshots
+}
+```
+
+## Legal and Ethical Usage
+
+- This tool is for **competitive research purposes only**
+- Respect Facebook's terms of service and rate limits
+- Use responsibly and ethically
+- Consider Facebook's robots.txt and API alternatives
+- Ensure compliance with local data protection laws
+
+## Data Privacy
+
+- The scraper only accesses publicly available ad data
+- No personal information is collected
+- All data is stored locally on your machine
+- Consider implementing data retention policies
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is for educational and research purposes. Users are responsible for complying with Facebook's terms of service and applicable laws.
+
+---
+
+**Note**: Facebook's Ad Library structure may change over time. If you encounter issues, the scraper may need updates to handle new page layouts or anti-bot measures.
