@@ -1,15 +1,16 @@
 {
-  "scrape_timestamp": "2025-07-17T02:43:28.305714",
+  "scrape_timestamp": "2025-07-17T03:00:21.856953",
   "search_scope": "GLOBAL",
   "approach": "TOP_PERFORMERS_PER_COMPETITOR",
   "top_ads_per_competitor": 10,
   "performance_threshold": 5.0,
-  "total_top_performing_ads": 20,
+  "total_top_performing_ads": 25,
   "competitors_scraped": [
     "IM8",
+    "Loop",
     "AG1"
   ],
-  "top_performing_count": 20,
+  "top_performing_count": 25,
   "summary_by_competitor": {
     "IM8": {
       "total_top_performing_ads": 10,
@@ -17,11 +18,17 @@
       "max_performance_score": 131.6,
       "min_performance_score": 131.6
     },
+    "Loop": {
+      "total_top_performing_ads": 5,
+      "avg_performance_score": 75.76,
+      "max_performance_score": 92.0,
+      "min_performance_score": 51.8
+    },
     "AG1": {
       "total_top_performing_ads": 10,
-      "avg_performance_score": 149.22,
-      "max_performance_score": 183.8,
-      "min_performance_score": 106.6
+      "avg_performance_score": 184.08,
+      "max_performance_score": 246.2,
+      "min_performance_score": 166.0
     }
   }
 }
