@@ -5,8 +5,8 @@ Facebook Ad Library Scraper Runner
 This script runs the Facebook Ad Library scraper for competitor analysis.
 """
 
-from facebook_ad_scraper import FacebookAdLibraryScraper
-from config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG
+from .facebook_ad_scraper import FacebookAdLibraryScraper
+from .config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG
 import argparse
 import sys
 

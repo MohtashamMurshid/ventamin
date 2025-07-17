@@ -20,8 +20,8 @@ from datetime import datetime
 import uuid
 
 # Import your existing modules
-from facebook_ad_scraper import FacebookAdLibraryScraper
-from config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG
+from scraping.facebook_ad_scraper import FacebookAdLibraryScraper
+from scraping.config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -327,7 +327,7 @@ async def run_media_analysis_task(task_id: str, file_path: str, max_ads: int):
     """Background task for running media analysis"""
     try:
         # Import here to avoid matplotlib issues on startup
-        from simple_media_analysis import SimpleMediaAnalyzer
+        from analysis.simple_media_analysis import SimpleMediaAnalyzer
         
         # Update task status
         task_storage[task_id]["status"] = "running"
@@ -385,6 +385,10 @@ async def run_media_analysis_task(task_id: str, file_path: str, max_ads: int):
         task_storage[task_id]["message"] = f"Media analysis failed: {str(e)}"
         task_storage[task_id]["progress"] = 0
 
-if __name__ == "__main__":
+def main():
+    """Main entry point for the API server"""
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False) 
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=False)
+
+if __name__ == "__main__":
+    main() 

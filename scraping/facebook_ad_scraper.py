@@ -13,7 +13,7 @@ import os
 import re
 from urllib.parse import urljoin
 import requests
-from config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG, PERFORMANCE_WEIGHTS
+from scraping.config import COMPETITORS, TARGET_COUNTRIES, SCRAPING_CONFIG, EXPORT_CONFIG, PERFORMANCE_WEIGHTS
 
 class FacebookAdLibraryScraper:
     def __init__(self, headless=None, screenshot_dir=None):

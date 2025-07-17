@@ -1,0 +1,3 @@
+[console_scripts]
+ventamin-api = api.main:main
+ventamin-scraper = scraping.run_scraper:main
