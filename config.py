@@ -5,7 +5,7 @@
 COMPETITORS = {
     "AG1": "183869772601",  # Athletic Greens (example - replace with actual)
     "IM8": "345914995276546",  # IM8 page ID
-    "Loop": "1577323122589954"  # Loop page ID
+    "Loop": "517850318391712"  # Loop page ID
 }
 
 # Use "ALL" for global search instead of individual countries

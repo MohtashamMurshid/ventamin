@@ -1,0 +1,34 @@
+{
+  "scrape_timestamp": "2025-07-17T18:00:56.457125",
+  "search_scope": "GLOBAL",
+  "approach": "TOP_PERFORMERS_PER_COMPETITOR",
+  "top_ads_per_competitor": 10,
+  "performance_threshold": 5.0,
+  "total_top_performing_ads": 29,
+  "competitors_scraped": [
+    "AG1",
+    "Loop",
+    "IM8"
+  ],
+  "top_performing_count": 29,
+  "summary_by_competitor": {
+    "AG1": {
+      "total_top_performing_ads": 10,
+      "avg_performance_score": 194.4,
+      "max_performance_score": 246.2,
+      "min_performance_score": 179.8
+    },
+    "Loop": {
+      "total_top_performing_ads": 9,
+      "avg_performance_score": 90.73,
+      "max_performance_score": 92.0,
+      "min_performance_score": 89.6
+    },
+    "IM8": {
+      "total_top_performing_ads": 10,
+      "avg_performance_score": 55.86,
+      "max_performance_score": 116.2,
+      "min_performance_score": 15.6
+    }
+  }
+}
